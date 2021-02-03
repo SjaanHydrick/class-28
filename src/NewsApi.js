@@ -5,10 +5,12 @@ const key = 'apiKey=4b0a4dfc3eaf451ca50ef5397cec328e';
 
 export const getArticles = () => {
   return fetch(`${URL}top-headlines?` + 'country=us&' + `${key}`)
-    .then(res => res.json());
+    .then(res => res.json())
+    .then(results => results.articles);
 };
 
 export const getSearchArticles = (search) => {
-  return fetch(`${URL}everything?` + `q=${search}` + `${key}`)
-    .then(res => res.json());
+  return fetch(`${URL}everything?` + `q=${search}&` + `${key}`)
+    .then(res => res.json())
+    .then(results => results.articles);
 };

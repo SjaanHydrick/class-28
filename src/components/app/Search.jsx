@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Search extends Component {
-  render() {
-    return (
-      <form>
-        <input className="searchbar"
-          type="text" 
-        />
-        <button className="search">Search</button>
-      </form>
-    );
-  }
-}
+const Search = ({ handleSearch, handleClick }) => (
+  <>
+    <form onSubmit={handleClick}>
+      <input
+        type="text"
+        onChange={handleSearch}
+      />
+      <button>Search</button>
+    </form>
+  </>
+);
+
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
+};
+
+export default Search;

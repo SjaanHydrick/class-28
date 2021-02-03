@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Articles from './Articles';
-import Search from './Search';
+import { getArticles, getSearchArticles } from '../../NewsApi';
+import Articles from '../app/Articles';
+import Search from '../app/Search';
 
 export default class NewsSearch extends Component {
     state = {
@@ -9,17 +10,34 @@ export default class NewsSearch extends Component {
       articles: []
     }
 
+    componentDidMount = async() => {
+      getArticles()
+        .then(articles => this.setState({ articles }));
+    }
+
+    handleSearch = e => {
+      this.setState({
+        search: e.target.value
+      });
+    }
+
+    handleClick = async(e) => {
+      e.preventDefault();
+
+      getSearchArticles(this.state.search)
+        .then(articles => this.setState({ articles }));
+    }
+
     render() {
-      const { search, loading, articles } = this.state;
+      const { articles } = this.state;
       return (
         <>
-          <Articles
-            loading={loading}
-            articles={articles} 
-          />
-
           <Search 
-            search={search}
+            handleSearch={this.handleSearch}
+            handleClick={this.handleClick}
+          />
+          <Articles
+            articles={articles} 
           />
         </>
       );
