@@ -24,8 +24,10 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "node-fetch": "^2.6.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-testing-library": "^8.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

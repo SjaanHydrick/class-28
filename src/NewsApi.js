@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 const URL = 'http://newsapi.org/v2/';
 const key = 'apiKey=4b0a4dfc3eaf451ca50ef5397cec328e';
 

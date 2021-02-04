@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getArticles, getSearchArticles } from '../../NewsApi';
 import Articles from '../app/Articles';
 import Search from '../app/Search';
+import styles from '../container/NewsSearch.css';
 
 export default class NewsSearch extends Component {
     state = {
@@ -39,20 +40,20 @@ export default class NewsSearch extends Component {
     render() {
       const { articles } = this.state;
       return (
-        <>
+        <div data-testid="article">
           <Search 
             handleSearch={this.handleSearch}
             handleClick={this.handleClick}
           />
 
           { this.state.loading
-            ? <p>GATHERING NEWS...</p>
+            ? <p className={styles.loading}>GATHERING NEWS...</p>
             :
             <Articles
               articles={articles} 
             />  
           }
-        </>
+        </div>
       );
     }
 }

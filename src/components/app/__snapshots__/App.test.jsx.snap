@@ -1,9 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders App 1`] = `
+exports[`App component render Article 1`] = `
 <DocumentFragment>
-  <h1>
-    Hello World
-  </h1>
+  <figure>
+    <a>
+      <h2 />
+    </a>
+    <img />
+    <h3 />
+    <p />
+  </figure>
+</DocumentFragment>
+`;
+
+exports[`App component render Search 1`] = `
+<DocumentFragment>
+  <form>
+    <input
+      data-testid="searchBar"
+      type="text"
+    />
+    <button
+      data-testid="submitButton"
+    >
+      Search
+    </button>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`App component renders Articles 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="article"
+    >
+      <figure>
+        <a
+          href=""
+        >
+          <h2 />
+        </a>
+        <img
+          src=""
+        />
+        <h3 />
+        <p />
+      </figure>
+    </div>
+  </div>
 </DocumentFragment>
 `;

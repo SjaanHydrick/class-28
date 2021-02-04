@@ -7,15 +7,16 @@ const Search = ({ handleSearch, handleClick }) => (
       <input
         type="text"
         onChange={handleSearch}
+        data-testid="searchBar"
       />
-      <button>Search</button>
+      <button data-testid="submitButton">Search</button>
     </form>
   </>
 );
 
 Search.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
-  handleClick: PropTypes.func.isRequired
+  handleSearch: PropTypes.func,
+  handleClick: PropTypes.func
 };
 
 export default Search;

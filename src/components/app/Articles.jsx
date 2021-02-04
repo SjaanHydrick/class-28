@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Article from './Article';
+import styles from '../container/NewsSearch.css';
 
 const Articles = ({ articles }) => {
   const articleElements = articles.map(article => (
-    <div key={article.title}>
+    <div className={styles.article} key={article.title}>
       <Article {...article} />
     </div>
   ));
@@ -18,12 +19,12 @@ const Articles = ({ articles }) => {
 
 Articles.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     author: PropTypes.string,
     url: PropTypes.string,
     urlToImage: PropTypes.string,
-    description: PropTypes.string.isRequired
-  })).isRequired
+    description: PropTypes.string
+  }))
 };
 
 export default Articles;
