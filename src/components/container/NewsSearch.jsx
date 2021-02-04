@@ -11,8 +11,12 @@ export default class NewsSearch extends Component {
     }
 
     componentDidMount = async() => {
-      getArticles()
+      this.setState({ loading: true });
+
+      await getArticles()
         .then(articles => this.setState({ articles }));
+    
+      this.setState({ loading: false });
     }
 
     handleSearch = e => {
@@ -24,8 +28,12 @@ export default class NewsSearch extends Component {
     handleClick = async(e) => {
       e.preventDefault();
 
-      getSearchArticles(this.state.search)
+      this.setState({ loading: true });
+
+      await getSearchArticles(this.state.search)
         .then(articles => this.setState({ articles }));
+
+      this.setState({ loading: false });
     }
 
     render() {
@@ -36,9 +44,14 @@ export default class NewsSearch extends Component {
             handleSearch={this.handleSearch}
             handleClick={this.handleClick}
           />
-          <Articles
-            articles={articles} 
-          />
+
+          { this.state.loading
+            ? <p>GATHERING NEWS...</p>
+            :
+            <Articles
+              articles={articles} 
+            />  
+          }
         </>
       );
     }
