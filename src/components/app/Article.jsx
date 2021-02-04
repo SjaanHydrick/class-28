@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Article = ({ title, author, description }) => (
+const Article = ({ title, url, urlToImage, author, description }) => (
   <figure>
-    <h2>{title}</h2>
+    <a href={url}><h2>{title}</h2></a>
+    <img src={urlToImage} />
     <h3>{author}</h3>
     <p>{description}</p>
   </figure>
@@ -12,6 +13,8 @@ const Article = ({ title, author, description }) => (
 Article.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string,
+  url: PropTypes.string,
+  urlToImage: PropTypes.string,
   description: PropTypes.string.isRequired
 };
 

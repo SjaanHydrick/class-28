@@ -20,6 +20,8 @@ Articles.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     author: PropTypes.string,
+    url: PropTypes.string,
+    urlToImage: PropTypes.string,
     description: PropTypes.string.isRequired
   })).isRequired
 };
